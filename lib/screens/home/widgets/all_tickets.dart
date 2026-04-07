@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
+import 'package:ticket_app/base/widgets/app_routes.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 
 class AllTickets extends StatelessWidget {
@@ -17,10 +18,20 @@ class AllTickets extends StatelessWidget {
             child: Column(
               children: ticketList
               .map((singleTicket) => 
-              Container(
-                margin: EdgeInsets.only(bottom: 20),
-                child: TicketView(ticket: singleTicket, wholescreen: true,)
-                ))
+              GestureDetector(
+                onTap: () {
+                  var index = ticketList.indexOf(singleTicket);
+                  print("I am tapped on ticket number $index");
+
+                  Navigator.pushNamed(context, AppRoutes.ticketScreen, 
+                  arguments: {"index": index,});
+
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  child: TicketView(ticket: singleTicket, wholescreen: true,)
+                  ),
+              ))
               .toList(),
             ),
           )
