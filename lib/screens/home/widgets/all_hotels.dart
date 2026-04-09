@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
-import 'package:ticket_app/screens/home/widgets/hotel.dart';
 
 class AllHotels extends StatelessWidget {
   const AllHotels({super.key});
@@ -46,7 +45,6 @@ class HotelGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
       
