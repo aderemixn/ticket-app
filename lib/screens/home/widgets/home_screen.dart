@@ -88,8 +88,7 @@ class HomeScreen extends StatelessWidget {
             bigText: "Hotels",
             smallText: "View all",
             func: (){
-              const routeName = "allHotels";
-              Navigator.pushNamed(context, routeName);
+              Navigator.pushNamed(context, "all_hotels");
             },
           ),
               const SizedBox(height: 20),
@@ -99,8 +98,8 @@ class HomeScreen extends StatelessWidget {
                   children: hotelList
                   .take(2)
                   .map((singleHotel) => 
-                  Hotel(hotel: singleHotel)
-                  ).toList(),
+                  Hotel(hotel: singleHotel))
+                  .toList(),
                 )
               )
         
