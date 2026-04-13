@@ -21,6 +21,7 @@ class AllTickets extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   var index = ticketList.indexOf(singleTicket);
+
                   print("I am tapped on ticket number $index");
 
                   Navigator.pushNamed(context, AppRoutes.ticketScreen, 

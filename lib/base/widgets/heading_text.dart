@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/styles/app_styles.dart';
 
-class TextStyleFourth extends StatelessWidget {
+class HeadingText extends StatelessWidget {
   final String text;
   final TextAlign align;
   final bool? isColor;
 
-  const TextStyleFourth(
+  const HeadingText(
     {super.key, 
     required this.text, 
     this.align=TextAlign.start, 
@@ -17,9 +17,9 @@ class TextStyleFourth extends StatelessWidget {
     return Text(
             text,
             textAlign: align,
-            style:  isColor==null 
-            ?AppStyles.headLineStyle4.copyWith(color:  Colors.white) 
-            : AppStyles.headLineStyle4,
+            style:  isColor == null 
+            ?AppStyles.headLineStyle1.copyWith(color:  Colors.white) 
+            : AppStyles.headLineStyle1,
             );
   }
-}
+  }

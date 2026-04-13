@@ -58,7 +58,7 @@ class _HotelDetailState extends State<HotelDetail> {
                     )),
                   Positioned(
                     bottom: 20,
-                    left: 20,
+                    right: 20,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 8, vertical: 4),
@@ -86,10 +86,15 @@ class _HotelDetailState extends State<HotelDetail> {
             ),
             SliverList(
               delegate: SliverChildListDelegate([
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                child: Text(
-                  "In this article, we will create a custom scroll view with a sliver app bar and a sliver list. The sliver app bar will have an expanded height of 300 pixels and will be pinned to the top of the screen when it is collapsed. The sliver list will contain a list of items that can be scrolled vertically. We will also add some styling to the app bar and the list items to make them look more attractive."),),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                child: ExpandedTextWidget(
+                  text:hotelList[index]["details"],
+                  )
+               /* Text(
+                  "In this article, we will create a custom scroll view with a sliver app bar and a sliver list. The sliver app bar will have an expanded height of 300 pixels and will be pinned to the top of the screen when it is collapsed. The sliver list will contain a list of items that can be scrolled vertically. We will also add some styling to the app bar and the list items to make them look more attractive."
+                  )*/,
+                  ),
                 const Padding(
                   padding: EdgeInsets.all(16.0),
                 child: Text(
@@ -98,17 +103,18 @@ class _HotelDetailState extends State<HotelDetail> {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,),
                 ),),
-                Container(
+                SizedBox(
                   height: 200,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (context, index){
+                    itemCount: hotelList[index]["images"].length,
+                    itemBuilder: (context, imagesIndex){
+                      print("${hotelList[index]["images"][0]}");
                     return Container(
                       margin: EdgeInsets.all(8),
                       color: Colors.red,
-                      child: Image.network(
-                        "https://via.placeholder.com/200x150"
+                      child: Image.asset(
+                        "assets/images/${hotelList[index]["images"][imagesIndex]}"
                       ),
                     );
 
@@ -119,6 +125,51 @@ class _HotelDetailState extends State<HotelDetail> {
                      
         ],
       ),
+    );
+  }
+}
+
+class ExpandedTextWidget extends StatefulWidget {
+  const ExpandedTextWidget({super.key, required this.text});
+  final String text;
+
+  @override
+  State<ExpandedTextWidget> createState() => _ExpandedTextWidgetState();
+}
+
+class _ExpandedTextWidgetState extends State<ExpandedTextWidget> {
+  bool isExpanded=false;
+    _toggleExpansion(){
+      setState(() {
+        isExpanded = !isExpanded;
+      });
+      print("The value is $isExpanded");
+    }
+  @override
+  Widget build(BuildContext context) {
+    
+    var textWidget = Text(
+      widget.text,
+      maxLines: isExpanded?null:6,
+      overflow: isExpanded?TextOverflow.visible:TextOverflow.ellipsis,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        textWidget,
+        GestureDetector(
+          onTap: (){
+            _toggleExpansion();
+          },
+          child: Text(
+            isExpanded?"Less":"More",
+            style: TextStyle(
+              color: AppStyles.primaryColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )
+      ],
     );
   }
 }
