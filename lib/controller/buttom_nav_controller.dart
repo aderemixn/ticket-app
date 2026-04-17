@@ -5,7 +5,7 @@ class ButtomNavController extends GetxController {
   var selectedIndex = 0.obs;
   
   void onItemTapped(int index) {
-    print("my index val $index");
+    ("my index val $index");
     selectedIndex.value = index;
   }
 

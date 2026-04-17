@@ -142,14 +142,14 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextStyleThird(
-                          text:  "You\'v got a new award",
+                          text:  "You'v got a new award",
                           isColor: null,),
                         
                         Text( 
                           "You have 95 flights in a year", 
                           style: TextStyle(
                             fontWeight: FontWeight.w500, 
-                            color: Colors.white.withOpacity(0.8)
+                            color: Colors.white.withValues(alpha: 0.8)
                           ),
                         )
                       ],
@@ -251,7 +251,7 @@ class ProfileScreen extends StatelessWidget {
                       isColor: false,
                       ),
                     AppColumnTextLayout(
-                      topText: "McDonal\'s", 
+                      topText: "McDonal's", 
                       bottomText: "Received from", 
                       alignment: CrossAxisAlignment.end,
                       isColor: false,
@@ -288,7 +288,7 @@ class ProfileScreen extends StatelessWidget {
                 //text
                 InkWell(
                     onTap: (){
-                      print("tapped");
+                      ("tapped");
                     },
                   child: Text(
                     "How to get more miles", 

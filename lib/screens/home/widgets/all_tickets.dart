@@ -22,7 +22,7 @@ class AllTickets extends StatelessWidget {
                 onTap: () {
                   var index = ticketList.indexOf(singleTicket);
 
-                  print("I am tapped on ticket number $index");
+                  ("I am tapped on ticket number $index");
 
                   Navigator.pushNamed(context, AppRoutes.ticketScreen, 
                   arguments: {"index": index,});

@@ -8,7 +8,7 @@ import 'package:ticket_app/screens/search/search_screen.dart';
 import 'package:ticket_app/screens/ticket/ticket_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
-   BottomNavBar({Key? key}): super(key: key);
+   BottomNavBar({super.key});
 
    //dependency injection for our controller
    final ButtomNavController controller = Get.put(ButtomNavController());
@@ -25,7 +25,7 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("my tab val ${controller.selectedIndex.value}");
+    ("my tab val ${controller.selectedIndex.value}");
     return Obx((){
           return Scaffold(
       

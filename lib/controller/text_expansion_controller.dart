@@ -7,6 +7,6 @@ class TextExpansionController extends GetxController {
 
     isExpanded.value = !isExpanded.value;
 
-    print("The value is $isExpanded");
+    ("The value is $isExpanded");
   }
 }

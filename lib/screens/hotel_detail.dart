@@ -16,7 +16,7 @@ class _HotelDetailState extends State<HotelDetail> {
 @override
   void didChangeDependencies() {
     var args = ModalRoute.of(context)!.settings.arguments as Map;
-    print(args["index"]);
+    (args["index"]);
     index = args["index"];
     super.didChangeDependencies();
   }
@@ -111,7 +111,7 @@ class _HotelDetailState extends State<HotelDetail> {
                     scrollDirection: Axis.horizontal,
                     itemCount: hotelList[index]["images"].length,
                     itemBuilder: (context, imagesIndex){
-                      print("${hotelList[index]["images"][0]}");
+                      ("${hotelList[index]["images"][0]}");
                     return Container(
                       margin: EdgeInsets.all(8),
                       color: Colors.red,
